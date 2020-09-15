@@ -1,60 +1,46 @@
 import React, { Component } from "react";
 
-import TankopediaService from "../../services/tankopedia-service";
+import PropTypes from "prop-types";
 
 import "./item-list.css";
 
+class ItemList extends Component {
 
-export default class ItemList extends Component {
-  tankopediaService = new TankopediaService();
-
-  state = {
-    howClass: 'light',
-    items: []
-  }
-
-  componentDidMount() {
-    switch(this.state.howClass){
-      case 'medium':
-        this.tankopediaService.getAllMedium().then(data => {
-          this.setState({
-            items: data
-          })
-          console.log(this.state);
-        })
-        break
-      case 'light':
-        this.tankopediaService.getAllLight().then(data => {
-          this.setState({
-            items: data
-          })
-          console.log(this.state);
-        })
-        break
-        default:
-      this.tankopediaService.getAllHeavy().then(data => {
-        this.setState({
-          items: data
-        })
-        console.log(this.state);
-      })
-      break
-
-    }
-  }
 
   render() {
+    const { data } = this.props;
 
-    const { items } = this.state;
+
 
     return (
-      <ul className="item-list list-group">
+      <ul className="item-list list-group" >
         {
-          items.map(item => {
-            return <li className="list-group-item" onClick={()=>this.props.onSelectedItem(item.id)} key={item.id}>{item.name}</li>
+          data.map((item) => {
+            return (
+              <li
+                className="list-group-item"
+                key={item.id}
+                onClick={() => this.props.onSelectedItem(item.id)}
+              >
+                {this.props.children(item)}
+              </li>
+            );
           })
         }
       </ul>
     );
   }
 }
+
+
+
+export default ItemList;
+
+ItemList.propTypes = {
+  onSelectedItem: PropTypes.func,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.func.isRequired
+};
+
+
+

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Spinner from "../spinner";
+import ErrorIndicator from '../error-indicator';
 import TankopediaService from "../../services/tankopedia-service";
 
 import "./random-tanks.css";
@@ -12,10 +13,6 @@ export default class RandomTanks extends Component {
     tanks: {},
     loading: true,
   };
-
-
-
-
 
   componentDidMount() {
     this.interval = setInterval(this.updateTanks, 2000);
@@ -29,6 +26,7 @@ export default class RandomTanks extends Component {
     this.setState({
       tanks,
       loading: false,
+      error: false
     });
   };
 
@@ -54,12 +52,15 @@ export default class RandomTanks extends Component {
     const hasData = !(loading || error);
 
     const spinner = loading ? <Spinner /> : null;
+    const errorMessage = error ? <ErrorIndicator /> : null;
     const content = hasData ? <TanksView tanks={tanks} /> : null;
+
 
     return (
       <div className="random-tanks jumbotron rounded">
         {spinner}
         {content}
+        {errorMessage}
       </div>
     );
   }
