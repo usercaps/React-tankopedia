@@ -82,8 +82,6 @@ export default class TankopediaService {
   //   return this._transformSau(sau);
   // };
 
-  
-
   getHeavyImage = ({ id }) => {
     return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/heavy_tanks/${id}.jpg`;
   };
@@ -92,6 +90,18 @@ export default class TankopediaService {
     return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/medium_tanks/${id}.jpg`;
   };
 
+  getLightImage = ({ id }) => {
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/light_tanks/${id}.jpg`;
+  };
+
+  getPtSauImage = ({ id }) => {
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/pt-sau/${id}.jpg`;
+  };
+
+  getSauImage = ({ id }) => {
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/sau/${id}.jpg`;
+  };
+  
   _extractId = (item) => {
     const idRegExp = /\/([0-9]*)\/$/;
     //console.log(item.url.match(idRegExp)[1]);

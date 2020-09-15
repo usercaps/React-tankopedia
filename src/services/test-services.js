@@ -53,46 +53,46 @@ export default class TestService {
   };
 
   getAllLight = async () => {
-    return this._medium;
+    return this._light;
   };
 
   getLight = async () => {
-    return this._medium[0];
+    return this._light[0];
   };
 
   getAllPtSau = async () => {
-    return this._medium;
+    return this._ptsau;
   };
 
   getPtSau = async () => {
-    return this._medium[0];
+    return this._ptsau[0];
   };
 
   getAllSau = async () => {
-    return this._medium;
+    return this._sau;
   };
 
   getSau = async () => {
-    return this._medium[0];
+    return this._sau[0];
   };
 
   getHeavyImage = () => {
-    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/test/heavy/1.jpg`;
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/heavy/1.jpg`;
   };
 
   getMediumImage = () => {
-    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/test/medium/1.jpg`;
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/medium/1.jpg`;
   };
 
   getLightImage = () => {
-    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/test/light/1.jpg`;
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/light/1.jpg`;
   };
 
   getPtSauImage = () => {
-    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/test/ptsau/1.jpg`;
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/pt-sau/1.jpg`;
   };
 
   getSauImage = () => {
-    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/test/sau/1.jpg`;
+    return `https://raw.githubusercontent.com/JSDenis/gallery-tanks/master/sau/1.jpg`;
   };
 }

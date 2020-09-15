@@ -1,16 +1,27 @@
 import {
   HeavyList,
   MediumList,
-  LightsList,
+  LightList,
   PtSauList,
   SauList,
 } from "./item-lists";
-// import {
-//   HeavyDetails,
-//   MediumDetails,
-//   LightDetails,
-//   PtSauDetails,
-//   SauDetails,
-// } from "./details";
+import {
+  HeavyDetails,
+  MediumDetails,
+  LightDetails,
+  PtSauDetails,
+  SauDetails,
+} from "./details";
 
-export { HeavyList, MediumList, LightsList, PtSauList, SauList };
+export {
+  HeavyList,
+  MediumList,
+  LightList,
+  PtSauList,
+  SauList,
+  HeavyDetails,
+  MediumDetails,
+  LightDetails,
+  PtSauDetails,
+  SauDetails,
+};

@@ -5,7 +5,7 @@ import { withRouter, Redirect } from "react-router-dom";
 
 class HeavyPage extends Component {
   state = {
-    isLogin: true,
+    isLogin: false,
   };
 
   onSelectedItem = (selectedItem) => {
