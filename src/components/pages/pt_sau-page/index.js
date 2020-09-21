@@ -4,27 +4,25 @@ import Column from "../../column";
 import { withRouter, Redirect } from "react-router-dom";
 
 class PtSauPage extends Component {
-    state = {
-        isLogin: false,
-      };
-
-  onSelectedItem = (selectedItem) => {
-    this.setState({ selectedItem });
+  state = {
+    isLogin: true,
   };
-
   render() {
     const { match, history } = this.props;
     const { id } = match.params;
-    if (this.state.isLogin) {
+    if (!this.state.isLogin) {
       return <Redirect to="/" />;
     }
-
     return (
       <Column
         top={
-          <PtSauList onSelectedItem={(id) => history.push(`/medium/${id}`)}/>
+          <PtSauList
+            onSelectedItem={(id) => {
+              history.push(`/pt-sau/${id}`);
+            }}
+          />
         }
-        bottom={<PtSauDetails selectedItem={this.state.selectedItem} />}
+        bottom={<PtSauDetails selectedItem={id} />}
       />
     );
   }

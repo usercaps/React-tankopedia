@@ -5,27 +5,25 @@ import { withRouter, Redirect } from "react-router-dom";
 
 class HeavyPage extends Component {
   state = {
-    isLogin: false,
+    isLogin: true,
   };
-
-  onSelectedItem = (selectedItem) => {
-    this.setState({ selectedItem });
-  };
-
   render() {
     const { match, history } = this.props;
     const { id } = match.params;
-    if (this.state.isLogin) {
+    if (!this.state.isLogin) {
       return <Redirect to="/" />;
     }
-
     return (
       <Column
         top={
-          <HeavyList onSelectedItem={(id) => history.push(`/heavy/${id}`)} />
+          <HeavyList
+            onSelectedItem={(id) => {
+              history.push(`/heavy/${id}`);
+            }}
+          />
         }
-        bottom={<HeavyDetails selectedItem={this.state.selectedItem} />}
-        />
+        bottom={<HeavyDetails selectedItem={id} />}
+      />
     );
   }
 }

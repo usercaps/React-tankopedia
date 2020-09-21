@@ -1,15 +1,12 @@
-import React from 'react';
-
+import React from "react";
 import { Link } from "react-router-dom";
-import './header.css';
+import "./header.css";
 
 const Header = () => {
   return (
     <div className="header d-flex justify-content-center">
       <h3>
-        <Link to="/">
-          React Tankopedia
-        </Link>
+        <Link to="/">React Tankopedia</Link>
       </h3>
       <ul className="d-flex">
         <li>
@@ -25,7 +22,7 @@ const Header = () => {
           <Link to="/pt-sau">Pt-Sau</Link>
         </li>
         <li>
-        <Link to="/sau">Sau</Link>
+          <Link to="/sau">Sau</Link>
         </li>
       </ul>
     </div>

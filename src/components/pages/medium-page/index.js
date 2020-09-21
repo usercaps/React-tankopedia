@@ -4,27 +4,25 @@ import Column from "../../column";
 import { withRouter, Redirect } from "react-router-dom";
 
 class MediumPage extends Component {
-    state = {
-        isLogin: true,
-      };
-
-  onSelectedItem = (selectedItem) => {
-    this.setState({ selectedItem });
+  state = {
+    isLogin: true,
   };
-
   render() {
     const { match, history } = this.props;
     const { id } = match.params;
-    if (this.state.isLogin) {
+    if (!this.state.isLogin) {
       return <Redirect to="/" />;
     }
-
     return (
       <Column
         top={
-          <MediumList onSelectedItem={(id) => history.push(`/medium/${id}`)}/>
+          <MediumList
+            onSelectedItem={(id) => {
+              history.push(`/medium/${id}`);
+            }}
+          />
         }
-        bottom={<MediumDetails selectedItem={this.state.selectedItem} />}
+        bottom={<MediumDetails selectedItem={id} />}
       />
     );
   }

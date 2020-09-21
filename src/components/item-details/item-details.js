@@ -1,20 +1,14 @@
 import React, { Component } from "react";
-
 import TankopediaService from "../../services/tankopedia-service";
-import PropTypes from "prop-types";
-
 import "./item-details.css";
 
 export default class ItemDetails extends Component {
   tankopediaService = new TankopediaService();
-
   state = {
     itemsInfo: {},
   };
-
   updateItem() {
     const { selectedItem, getData, getImage } = this.props;
-
     if (!selectedItem) {
       return;
     }
@@ -24,7 +18,7 @@ export default class ItemDetails extends Component {
         itemsInfo: item,
         image: getImage(item),
       });
-    })
+    });
   }
 
   componentDidMount() {
@@ -37,15 +31,9 @@ export default class ItemDetails extends Component {
     }
   }
 
-
-
-
   render() {
     const { itemsInfo } = this.state;
-    const {
-      id,
-      name,
-    } = this.state.itemsInfo;
+    const { id, name } = this.state.itemsInfo;
     if (!this.props.selectedItem) {
       return <span>Select a person from a list</span>;
     }
@@ -70,6 +58,4 @@ export default class ItemDetails extends Component {
   }
 }
 
-ItemDetails.propTypes = {
-  selectedItem: PropTypes.number
-}
+//
